@@ -1,0 +1,16 @@
+let productos = [
+    {
+        title: 'Licuadora',
+        price: '$100',
+        id: 1
+   },
+   {
+    title: 'Tostadora',
+    price: '$3000',
+    id: 2
+   },
+  { title: 'Horno',
+        price: '$500',
+        id: 3
+    }
+]
