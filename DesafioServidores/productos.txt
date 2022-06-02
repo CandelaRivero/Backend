@@ -1,0 +1,17 @@
+let productos = [
+   
+  { title: 'Horno',
+        price: '$500',
+        id: 1
+    },
+    {
+        title: 'Heladera',
+    price: '$5000',
+    id: 2
+    },
+    {
+        title: 'Vajilla',
+    price: '$4500',
+    id: 3
+    }
+]
