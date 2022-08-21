@@ -1,0 +1,113 @@
+λ mongo
+
+> show dbs
+
+
+
+db.createCollection("productos") 
+db.createCollection("mensajes")
+
+
+> use productos
+
+switched to db productos
+
+> db
+
+productos
+
+> db.productos.insertMany([
+    {nombre: 'Sillon', price: 1000},
+    {nombre: 'Cuadro', price: 200},
+    {nombre: 'Cama', price: 50},
+    {nombre: 'Heladera', price: 580},
+    {nombre: 'Closet', price: 1280},
+    {nombre: 'Perchero', price: 2860},
+    {nombre: 'Tostadora', price: 3350},
+    {nombre: 'Perchas', price: 560},
+    {nombre: 'Mesa', price: 870},
+    {nombre: 'Silla', price: 1700}
+    
+
+
+])
+
+{
+    "acknowledged" : true,
+    "insertedIds" : [
+        ObjectId(""),
+        ObjectId(""),
+        ObjectId(""),
+        ObjectId(""),
+        ObjectId(""),
+        ObjectId(""),
+        ObjectId("")
+        
+    ]
+}
+
+show collectios 
+productos
+
+> db.productos.find()
+    {nombre: 'Sillon', price: 1000},
+    {nombre: 'Cuadro', price: 2000},
+    {nombre: 'Cama', price: 50},
+    {nombre: 'Heladera', price: 5800},
+    {nombre: 'Closet', price: 1280},
+    {nombre: 'Perchero', price: 2860},
+    {nombre: 'Tostadora', price: 3350},
+    {nombre: 'Perchas', price: 5600},
+    {nombre: 'Mesa', price: 8700},
+    {nombre: 'Silla', price: 1700}
+
+
+
+> db.productos.insertOne(
+    {nombre: "Cabecera", price: 4850}
+
+)
+
+> db.productos.find({nombre: 'Cama'})
+
+{ "_id" : ObjectId(""), "nombre" : "Cama", "price" : 50 }
+
+
+> db.productos.find().sort({price: -1000})
+
+{ "_id" : "), "nombre" : "Cama", "price" : 50 }
+
+
+
+> db.productos.find({$and:[{price: {$gte: 1000}},{price: {$lte: 3000}}]}) 
+    {nombre: 'Sillon', price: 1000},
+    {nombre: 'Cuadro', price: 2000},
+    {nombre: 'Closet', price: 1280},
+    {nombre: 'Perchero', price: 2860},
+    {nombre: 'Silla', price: 1700}
+
+    > db.productos.find().sort({price: +3000})
+    {nombre: 'Heladera', price: 5800},
+    {nombre: 'Tostadora', price: 3350},
+    {nombre: 'Perchas', price: 5600},
+    {nombre: 'Mesa', price: 8700},
+
+
+> db.productos.updateMany({productos},{$set: {stock:100}})
+
+> db.productos.deleteMany({price: -1000})
+
+db.productos.createUser(
+    {
+         user: 'pepe',      
+       pwd: "asd456",
+         roles: [
+             {role: 'read', db: 'blog'}
+         ]
+    
+     }
+ )
+
+
+
+
